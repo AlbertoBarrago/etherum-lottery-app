@@ -1,8 +1,9 @@
 {
   "name": "etherum-app",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
+  "author": "alBz",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

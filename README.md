@@ -3,6 +3,7 @@
 Simple contract for lottery game.
 
 ## 🧙‍♂️ Work in progress... 
+Please be patience :)
 
 ## TODO 
 - [ ] Add pickWinner implementation
