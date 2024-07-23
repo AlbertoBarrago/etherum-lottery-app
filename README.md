@@ -1,8 +1,26 @@
-# React + Vite
+# Lottery Contract
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Simple contract for lottery game.
 
-Currently, two official plugins are available:
+## 🧙‍♂️ Work in progress... 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## TODO 
+- [ ] Add pickWinner implementation
+- [ ] Add tests
+- [ ] Add documentation
+
+
+### HINTS 
+After deploying the contract, you can interact with it using _Remix_ for testing your code.
+
+But for testing the contract in a **local environment**,
+you can use the following commands (assumption: you have metamask
+installed):
+```bash 
+npm run dev
+```
+
+
+
+
+
