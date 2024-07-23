@@ -109,7 +109,7 @@ function App() {
                     {message ?? message}
                     <br/>
                     <hr/>
-                    <h4>Pick a Winner</h4>
+                    <h4>Pick a Winner (Manager profile only)</h4>
                     <button onClick={pickAWinner}>
                         Close lottery and pick a winner now!
                     </button>
