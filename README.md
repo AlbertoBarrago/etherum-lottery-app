@@ -6,7 +6,7 @@ Simple contract for lottery game.
 Please be patience :)
 
 ## TODO 
-- [ ] Add pickWinner implementation
+- [x] Add pickWinner implementation
 - [ ] Add tests
 - [ ] Add documentation
 
