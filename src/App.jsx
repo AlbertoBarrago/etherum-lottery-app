@@ -48,7 +48,7 @@ function App() {
             setMessage(`Attempting to auth from account from: ${accounts[0]}`);
             await lottery.methods.enter().send({
                 from: accounts[0],
-                value: web3.utils.toWei(value, 'ether')
+                value: value
             });
             setMessage('Successfully entered lottery');
             setValue('');
@@ -88,7 +88,8 @@ function App() {
             )}
             {!isLoading && (
                 <>
-                    <h1>The contract is managed by {manager.length > 0 ? manager : 'Unknown'}</h1>
+                    <h1>Lottery</h1>
+                    <h2>The contract is managed by {manager.length > 0 ? manager : 'Unknown'}</h2>
                     <p>There are currently {players.length > 0 ? players.length : 0} people entered for competing to
                         win {balance} ether!</p>
 
@@ -98,19 +99,17 @@ function App() {
                         <div>
                             <label htmlFor="AmountOfEther">Amount of Ether</label> <br/>
                             <input type="text" value={value} onChange={(value) => {
-                                console.log('value', value.target.value);
-                                setValue(value.target.value);
+                                setValue(web3.utils.toWei(value.target.value, 'ether'));
                             }}/>
                             <br/> <br/>
                             <button>Enter</button>
                         </div>
                     </form>
                     <br/>
-                    {message ?? message}
-                    <br/>
+                    <p>{message ?? message}</p>
                     <hr/>
                     <h4>Pick a Winner (Manager profile only)</h4>
-                    <button onClick={pickAWinner}>
+                    <button disabled={players.length === 0} onClick={pickAWinner}>
                         Close lottery and pick a winner now!
                     </button>
                 </>
