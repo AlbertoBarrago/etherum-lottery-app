@@ -21,6 +21,9 @@ installed):
 npm run dev
 ```
 
+Simple screenshot of the contract on local network:
+![img.png](img.png)
+
 
 
 
