@@ -62,6 +62,23 @@ function App() {
         }
     }
 
+    const  pickAWinner = async () => {
+        try {
+            const accounts = await web3.eth.getAccounts();
+            setMessage(`Attempting to auth from account from: ${accounts[0]}`);
+            await lottery.methods.pickWinner().send({
+                from: accounts[0]
+            });
+            setMessage('Successfully picked a winner');
+            setIsLoading(false);
+            setMessage(null);
+            setPlayers([]);
+        } catch (error) {
+            setMessage(error.message);
+            console.error('Error picking winner:', error);
+        }
+    }
+
     return (
         <>
             {isLoading && (
@@ -70,7 +87,7 @@ function App() {
                 </div>
             )}
             {!isLoading && (
-                <div>
+                <>
                     <h1>The contract is managed by {manager.length > 0 ? manager : 'Unknown'}</h1>
                     <p>There are currently {players.length > 0 ? players.length : 0} people entered for competing to
                         win {balance} ether!</p>
@@ -84,12 +101,19 @@ function App() {
                                 console.log('value', value.target.value);
                                 setValue(value.target.value);
                             }}/>
-                            <br/>
+                            <br/> <br/>
                             <button>Enter</button>
                         </div>
                     </form>
+                    <br/>
                     {message ?? message}
-                </div>
+                    <br/>
+                    <hr/>
+                    <h4>Pick a Winner (Manager profile only)</h4>
+                    <button onClick={pickAWinner}>
+                        Close lottery and pick a winner now!
+                    </button>
+                </>
             )}
         </>
     );
